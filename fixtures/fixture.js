@@ -14,6 +14,11 @@ contextMenu({
 		saveLinkAs: 'Configured Save Link As…',
 		inspect: 'Configured Inspect'
 	},
+	accelerators:{
+		cut: 'CmdOrCtrl+X',
+		copy: 'CmdOrCtrl+C',
+		paste: 'CmdOrCtrl+V'
+	},
 	prepend: () => [
 		{
 			label: 'Unicorn'

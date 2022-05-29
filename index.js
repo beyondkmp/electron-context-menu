@@ -73,6 +73,7 @@ const create = (win, options) => {
 			cut: decorateMenuItem({
 				id: 'cut',
 				label: 'Cu&t',
+				accelerator: '',
 				enabled: can('Cut'),
 				visible: props.isEditable,
 				click(menuItem) {
@@ -89,6 +90,7 @@ const create = (win, options) => {
 			copy: decorateMenuItem({
 				id: 'copy',
 				label: '&Copy',
+				accelerator: '',
 				enabled: can('Copy'),
 				visible: props.isEditable || hasText,
 				click(menuItem) {
@@ -105,6 +107,7 @@ const create = (win, options) => {
 			paste: decorateMenuItem({
 				id: 'paste',
 				label: '&Paste',
+				accelerator: '',
 				enabled: editFlags.canPaste,
 				visible: props.isEditable,
 				click(menuItem) {
@@ -282,6 +285,10 @@ const create = (win, options) => {
 			// Apply custom labels for default menu items
 			if (options.labels && options.labels[menuItem.id]) {
 				menuItem.label = options.labels[menuItem.id];
+			}
+
+			if (options.accelerators && options.accelerators[menuItem.id]) {
+				menuItem.accelerator = options.accelerators[menuItem.id];
 			}
 
 			// Replace placeholders in menu item labels

@@ -8,6 +8,16 @@ import {
 } from 'electron';
 
 declare namespace contextMenu {
+	interface Accelerators {
+		/**
+		@default ''
+		*/
+		readonly cut?: string;
+
+		readonly copy?: string;
+
+		readonly paste?: string;
+	}
 	interface Labels {
 		/**
 		@default 'Learn Spelling'
@@ -219,6 +229,22 @@ declare namespace contextMenu {
 		```
 		*/
 		readonly labels?: Labels;
+
+		/*
+		Add accelerators for copy, paste and cut.
+		 @default {}
+		 @example
+		 ```
+		 {
+		 	accelerators: {
+		 		copy: 'CmdOrCtrl+C',
+				paste: 'CmdOrCtrl+V',
+				cut: 'CmdOrCtrl+X'
+			}
+		 }
+		 ```
+		*/
+		readonly  accelerators?: Accelerators;
 
 		/**
 		Determines whether or not to show the menu.
